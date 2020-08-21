@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yh.mapper.ScoreConditionMapper">
+
+    <select id="getById" parameterType="int" resultType="com.yh.entity.ScoreCondition">
+        SELECT id,description FROM scoring_condition WHERE id = #{id}
+    </select>
+
+    <insert id="add" parameterType="com.yh.entity.ScoreCondition" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO scoring_condition(description) VALUES (#{description})
+    </insert>
+
+    <update id="update">
+        UPDATE scoring_condition SET name = #{description} WHERE id = #{id}
+    </update>
+</mapper>
